@@ -1,0 +1,52 @@
+---
+const faqs = [
+  {
+    q: "Kulitku sensitif, aman tidak pakai Glowvit?",
+    a: "Sebagian besar pengguna dengan kulit sensitif tetap bisa memakainya, tapi setiap kulit berbeda. Saranku: lakukan patch test dulu di belakang telinga atau rahang selama 24 sampai 48 jam. Kalau muncul kemerahan atau gatal berlebih, hentikan pemakaian. Aku akan pandu caranya lewat chat.",
+  },
+  {
+    q: "Berapa lama sampai kelihatan hasilnya?",
+    a: "Jujur ya: tidak instan. Pada umumnya perubahan tekstur dan kecerahan mulai terasa setelah 2 sampai 4 minggu pemakaian rutin, dan itu pun berbeda tiap orang. Skincare adalah soal konsistensi, bukan sulap. Yang pasti aku dampingi sampai kamu tahu rutinitas yang pas.",
+  },
+  {
+    q: "Kalau mau ikut jualan juga, bagaimana caranya?",
+    a: "Bisa, dan santai saja prosesnya. Kamu bisa mulai dari paket kecil untuk dipakai sendiri dulu, supaya paham produknya sebelum menawarkan ke orang lain. Aku akan jelaskan sistemnya dengan transparan, termasuk modal, margin, dan kewajibannya. Tidak ada target paksa dan tidak ada janji penghasilan, karena hasilnya tergantung usaha masing-masing.",
+  },
+];
+---
+
+<section id="faq" class="scroll-mt-24 bg-cream-100">
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+    <h2 class="text-3xl font-extrabold tracking-tight text-coco-950 sm:text-4xl">
+      Sering Ditanyakan
+    </h2>
+    <p class="mt-4 text-lg leading-relaxed text-coco-600">
+      Tiga pertanyaan yang paling sering masuk ke chat-ku.
+    </p>
+
+    <div class="mt-10 space-y-3">
+      {
+        faqs.map((f) => (
+          <details class="group rounded-xl border border-cream-200 bg-white">
+            <summary class="flex min-h-[44px] cursor-pointer items-center justify-between gap-4 px-5 py-4 text-base font-bold text-coco-900">
+              {f.q}
+              <svg
+                class="h-5 w-5 shrink-0 text-terra-500 transition-transform group-open:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </summary>
+            <div class="border-t border-cream-200 px-5 py-4 leading-relaxed text-coco-600">
+              {f.a}
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

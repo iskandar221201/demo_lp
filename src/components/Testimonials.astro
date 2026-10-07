@@ -1,0 +1,64 @@
+---
+const testimonials = [
+  {
+    quote:
+      "Baru dua minggu pakai serumnya, bekas jerawat mulai memudar pelan-pelan. Yang paling enak, Kak Rina rajin nanyain progress.",
+    name: "Dita",
+    context: "Karyawati, 26 tahun",
+  },
+  {
+    quote:
+      "Awalnya ragu karena kulitku sensitif. Dikasih tahu cara patch test dulu, ternyata aman. Sekarang moisturizer-nya jadi andalan tiap malam.",
+    name: "Sari",
+    context: "Mahasiswi, 21 tahun",
+  },
+  {
+    quote:
+      "Beli paket duo buat hadiah adik, eh akhirnya ikut pakai juga. Komunitasnya seru, sering sharing tips skincare, bukan cuma jualan.",
+    name: "Maya",
+    context: "Ibu rumah tangga, 32 tahun",
+  },
+];
+---
+
+<section id="testimoni" class="scroll-mt-24 bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-extrabold tracking-tight text-coco-950 sm:text-4xl">
+        Kata Mereka yang Sudah Coba
+      </h2>
+      <p class="mt-4 rounded-lg border border-cream-200 bg-cream-50 px-4 py-3 text-sm leading-relaxed text-coco-600">
+        <span class="font-bold text-coco-900">Catatan demo:</span> tiga testimoni
+        berikut adalah contoh ilustrasi untuk keperluan demo, bukan kesaksian pelanggan
+        sungguhan.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {
+        testimonials.map((t) => (
+          <figure class="flex flex-col rounded-2xl border border-cream-200 bg-cream-50 p-6">
+            <blockquote class="flex-1 leading-relaxed text-coco-700">
+              <span aria-hidden="true" class="text-2xl font-extrabold text-terra-300">&ldquo;</span>
+              {t.quote}
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-cream-200 pt-4">
+              <span
+                aria-hidden="true"
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-terra-100 text-sm font-extrabold text-terra-700"
+              >
+                {t.name.charAt(0)}
+              </span>
+              <div>
+                <p class="text-sm font-bold text-coco-950">
+                  {t.name} <span class="font-medium text-coco-500">(contoh)</span>
+                </p>
+                <p class="text-xs text-coco-500">{t.context}</p>
+              </div>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

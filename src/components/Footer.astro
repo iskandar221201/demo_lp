@@ -1,0 +1,37 @@
+---
+import { distributor, waLink } from "../data/distributor.js";
+
+const waDisplay = "0812-3456-789";
+---
+
+<footer class="bg-coco-950 text-cream-100">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="border-t-2 border-terra-500 pt-8">
+      <p class="text-lg font-extrabold text-white">{distributor.name}</p>
+      <p class="mt-1 text-sm">
+        Distributor resmi {distributor.company}, {distributor.level}
+      </p>
+      <p class="mt-1 text-sm">
+        WhatsApp:
+        <a
+          href={waLink("Halo Kak Rina!")}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-semibold text-terra-200 underline underline-offset-2 hover:text-white"
+        >
+          {waDisplay}
+        </a>
+        <span class="text-coco-500"> (nomor contoh untuk demo)</span>
+      </p>
+    </div>
+
+    <p class="mt-8 max-w-3xl text-sm leading-relaxed">
+      Hasil dapat berbeda tiap individu. Produk ini bukan jaminan penghasilan.
+    </p>
+
+    <p class="mt-4 text-xs leading-relaxed text-coco-500">
+      Halaman ini adalah demo. Seluruh nama, harga, testimoni, dan foto bersifat
+      ilustratif. Foto produk: Unsplash. &copy; 2026 {distributor.name}.
+    </p>
+  </div>
+</footer>

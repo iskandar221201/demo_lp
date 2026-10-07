@@ -1,0 +1,122 @@
+---
+import { distributor, waLink } from "../data/distributor.js";
+
+const links = [
+  { href: "#kenapa", label: "Kenapa Kami" },
+  { href: "#produk", label: "Produk" },
+  { href: "#testimoni", label: "Testimoni" },
+  { href: "#faq", label: "FAQ" },
+];
+
+const ctaHref = waLink("Halo Kak Rina, aku mau tanya-tanya soal Glowvit dulu.");
+---
+
+<header class="sticky top-0 z-50">
+  <div class="bg-terra-600 px-4 py-1.5 text-center text-xs text-white sm:px-6">
+    Distributor resmi {distributor.company}, {distributor.level}
+  </div>
+  <nav class="border-b border-cream-200 bg-cream-50" aria-label="Navigasi utama">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="#" class="flex items-center gap-2">
+        <span
+          aria-hidden="true"
+          class="flex h-9 w-9 items-center justify-center rounded-full bg-terra-500 text-base font-extrabold text-white"
+        >
+          G
+        </span>
+        <span class="text-lg font-extrabold tracking-tight text-coco-900">
+          {distributor.brand}
+          <span class="font-medium text-coco-500">by Rina</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-6 md:flex">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="text-sm font-semibold text-coco-600 transition-colors hover:text-coco-900"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={ctaHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-wa-600 px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-wa-700"
+        >
+          Chat Rina
+        </a>
+      </div>
+
+      <button
+        id="menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Buka menu navigasi"
+        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md text-coco-700 hover:bg-cream-100 md:hidden"
+      >
+        <svg id="menu-icon-open" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+        </svg>
+        <svg id="menu-icon-close" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-cream-200 bg-cream-50 md:hidden">
+      <div class="space-y-1 px-4 py-4 sm:px-6">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="block rounded-md px-3 py-3 text-base font-semibold text-coco-700 hover:bg-cream-100"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          href={ctaHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-2 flex min-h-[44px] items-center justify-center rounded-full bg-wa-600 px-4 py-3 text-base font-bold text-white hover:bg-wa-700"
+        >
+          Chat Rina via WhatsApp
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  function setMenu(open: boolean) {
+    if (!menu || !btn || !iconOpen || !iconClose) return;
+    menu.classList.toggle("hidden", !open);
+    iconOpen.classList.toggle("hidden", open);
+    iconClose.classList.toggle("hidden", !open);
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Tutup menu navigasi" : "Buka menu navigasi");
+  }
+
+  btn?.addEventListener("click", () => {
+    setMenu(menu?.classList.contains("hidden") ?? false);
+  });
+
+  menu?.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setMenu(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+  });
+</script>

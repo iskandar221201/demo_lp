@@ -1,0 +1,44 @@
+---
+const points = [
+  {
+    title: "Konsultasi dulu, beli kemudian",
+    body: "Ceritakan dulu jenis kulit dan keluhanmu. Aku bantu pilihkan yang cocok, dan kalau memang belum butuh, akan aku bilang jujur.",
+  },
+  {
+    title: "Produk jelas sumbernya",
+    body: "Stok langsung dari perusahaan, bukan dari pasar gelap. Kamu bisa cek tanggal kedaluwarsa dan segel sebelum membayar.",
+  },
+  {
+    title: "Ada komunitas yang suportif",
+    body: "Masuk grup belajar bareng soal skincare, sharing progress, dan tanya jawab santai. Fokusnya produk dan pertemanan, bukan janji penghasilan.",
+  },
+];
+---
+
+<section id="kenapa" class="scroll-mt-24 bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-extrabold tracking-tight text-coco-950 sm:text-4xl">
+        Kenapa Beli Lewat Rina?
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-coco-600">
+        Harga produknya sama saja di mana pun. Yang beda adalah siapa yang menemani
+        kamu sebelum dan sesudah membeli.
+      </p>
+    </div>
+
+    <div class="mt-12">
+      {
+        points.map((p, i) => (
+          <div class="grid gap-3 border-t border-cream-200 py-8 last:border-b md:grid-cols-[auto_1fr_1.4fr] md:gap-10">
+            <span class="text-4xl font-extrabold text-terra-300" aria-hidden="true">
+              0{i + 1}
+            </span>
+            <h3 class="text-xl font-bold text-coco-900">{p.title}</h3>
+            <p class="leading-relaxed text-coco-600">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

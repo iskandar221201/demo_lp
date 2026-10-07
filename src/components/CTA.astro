@@ -1,0 +1,35 @@
+---
+import { waLink } from "../data/distributor.js";
+
+const ctaHref = waLink(
+  "Halo Kak Rina, aku mau mulai konsultasi soal skincare Glowvit."
+);
+---
+
+<section id="kontak" class="scroll-mt-24 bg-terra-600 text-white">
+  <div class="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8">
+    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Siap Mulai Rawat Kulitmu?
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-terra-50">
+      Chat aku sekarang, ceritakan jenis kulit dan keluhanmu. Konsultasi gratis,
+      tanpa kewajiban beli.
+    </p>
+    <p class="mx-auto mt-3 max-w-xl leading-relaxed text-terra-100">
+      Sedikit catatan jujur: kulit butuh waktu dan konsistensi. Semakin cepat kamu
+      mulai rutinitas yang benar, semakin cepat juga kelihatan hasilnya. Tapi
+      keputusan tetap di tanganmu, aku tidak akan memaksa.
+    </p>
+    <a
+      href={ctaHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-extrabold text-terra-700 transition-colors hover:bg-cream-100"
+    >
+      Chat Rina Sekarang
+    </a>
+    <p class="mt-4 text-sm text-terra-100">
+      Biasanya dibalas dalam 1 jam pada jam kerja (Senin sampai Sabtu, 09.00-20.00 WIB).
+    </p>
+  </div>
+</section>

@@ -1,0 +1,125 @@
+---
+import { waLink } from "../data/distributor.js";
+
+const products = [
+  {
+    name: "Glowvit Vitamin C Serum",
+    size: "20 ml",
+    price: "Rp149.000",
+    img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80",
+    alt: "Botol serum kaca dengan pipet (foto ilustrasi dari Unsplash)",
+    featured: false,
+    points: [
+      "Membantu kulit tampak lebih cerah dan segar",
+      "Membantu menyamarkan tampilan noda hitam bekas jerawat",
+      "Tekstur ringan, cepat meresap, tidak lengket",
+      "Dipakai pagi sebelum sunscreen atau malam hari",
+    ],
+  },
+  {
+    name: "Glowvit Moisturizer",
+    size: "30 g",
+    price: "Rp129.000",
+    img: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80",
+    alt: "Jar krim pelembap kaca (foto ilustrasi dari Unsplash)",
+    featured: false,
+    points: [
+      "Menjaga kelembapan kulit sepanjang hari",
+      "Membantu memperkuat skin barrier",
+      "Cocok dipadukan dengan serum vitamin C",
+      "Nyaman untuk pemakaian pagi dan malam",
+    ],
+  },
+  {
+    name: "Paket Glowing Duo",
+    size: "Serum + Moisturizer",
+    price: "Rp249.000",
+    img: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=800&q=80",
+    alt: "Dua botol skincare dalam satu rangkaian (foto ilustrasi dari Unsplash)",
+    featured: true,
+    points: [
+      "Rutinitas lengkap dalam satu paket",
+      "Lebih hemat Rp29.000 dibanding beli satuan",
+      "Cocok untuk pemula yang baru mulai skincare rutin",
+      "Termasuk panduan urutan pemakaian dari aku",
+    ],
+  },
+];
+---
+
+<section id="produk" class="scroll-mt-24 bg-cream-100">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-extrabold tracking-tight text-coco-950 sm:text-4xl">
+        Produk Glowvit
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-coco-600">
+        Dua produk inti yang saling melengkapi. Harga di bawah adalah
+        <span class="font-semibold text-coco-900"> harga contoh untuk demo</span>.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        products.map((p) => (
+          <article
+            class:list={[
+              "flex flex-col overflow-hidden rounded-2xl bg-white",
+              p.featured
+                ? "border-2 border-terra-400 md:col-span-2 lg:col-span-1"
+                : "border border-cream-200",
+            ]}
+          >
+            <div class="relative">
+              <img
+                src={p.img}
+                alt={p.alt}
+                width="800"
+                height="600"
+                loading="lazy"
+                class="aspect-[4/3] w-full object-cover"
+              />
+              {p.featured && (
+                <span class="absolute left-4 top-4 rounded-full bg-terra-500 px-3 py-1 text-xs font-bold text-white">
+                  Paling laris (contoh)
+                </span>
+              )}
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <p class="text-sm font-semibold text-coco-500">{p.size}</p>
+              <h3 class="mt-1 text-xl font-bold text-coco-950">{p.name}</h3>
+              <p class="mt-2 text-2xl font-extrabold text-terra-600">{p.price}</p>
+              <ul class="mt-5 flex-1 space-y-3 border-t border-cream-200 pt-5">
+                {p.points.map((point) => (
+                  <li class="flex gap-3">
+                    <span aria-hidden="true" class="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-terra-400" />
+                    <span class="text-sm leading-relaxed text-coco-600">{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={waLink(`Halo Kak Rina, aku mau pesan ${p.name} (${p.price}). Boleh info ketersediaannya?`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  "mt-6 inline-flex min-h-[44px] items-center justify-center rounded-full px-5 py-3 text-base font-bold transition-colors",
+                  p.featured
+                    ? "bg-wa-600 text-white hover:bg-wa-700"
+                    : "border-2 border-terra-300 text-terra-700 hover:border-terra-500 hover:bg-terra-50",
+                ]}
+              >
+                Pesan via WhatsApp
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 max-w-3xl text-sm leading-relaxed text-coco-500">
+      Foto produk di atas adalah foto ilustrasi dari Unsplash, bukan foto kemasan asli
+      Glowvit. Manfaat yang disebutkan mengikuti klaim kosmetik pada umumnya dan hasilnya
+      bisa berbeda pada tiap orang.
+    </p>
+  </div>
+</section>

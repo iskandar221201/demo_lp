@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  /* Plus Jakarta Sans: typeface karya desainer Indonesia, hangat dan modern,
+     cocok untuk brand lokal yang ingin terasa dekat */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-cream-50: #faf5ee;
+  --color-cream-100: #f3e9dc;
+  --color-cream-200: #e8d7c2;
+
+  --color-terra-50: #fbf0ec;
+  --color-terra-100: #f5dcd2;
+  --color-terra-200: #eab8a6;
+  --color-terra-300: #dd8f74;
+  --color-terra-400: #ce6a4b;
+  --color-terra-500: #bc5334;
+  --color-terra-600: #a34428;
+  --color-terra-700: #863722;
+
+  --color-coco-500: #7a5b4c;
+  --color-coco-600: #614639;
+  --color-coco-700: #4c372d;
+  --color-coco-800: #3b2a23;
+  --color-coco-900: #2b1f1a;
+  --color-coco-950: #1d1410;
+
+  /* Hijau WhatsApp, digelapkan agar teks putih lolos kontras WCAG AA */
+  --color-wa-600: #107c41;
+  --color-wa-700: #0c6134;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 font-sans text-coco-800 antialiased;
+  }
+
+  details summary {
+    list-style: none;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terra-600);
+    outline-offset: 2px;
+  }
+}
